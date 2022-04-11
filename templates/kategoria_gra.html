@@ -1,0 +1,10 @@
+{% extends 'template.html' %}
+    {% block gra %}
+        {% if kategoria_gra %}
+            {% for gra in kategoria_gra %}
+                <p><a href = "/gra/{{ gra.id }}"> {{ gra.nazwa }}</a></p>
+            {% endfor %}
+        {% else %}
+        {% endif %}
+
+    {% endblock %}

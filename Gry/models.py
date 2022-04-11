@@ -3,7 +3,6 @@ from django.db import models
 # Create your models here.
 class Producent(models.Model):
  nazwa = models.CharField(max_length=40)
- opis = models.TextField(blank=True)
 
  def __str__(self):
   return self.nazwa
@@ -12,6 +11,15 @@ class Producent(models.Model):
   verbose_name = "Producent"
   verbose_name_plural = "Producenci"
 
+class Wydawca(models.Model):
+ nazwa = models.CharField(max_length=40)
+
+ def __str__(self):
+  return self.nazwa
+
+ class Meta:
+  verbose_name = "Wydawca"
+  verbose_name_plural = "Wydawcy"
 
 class Kategoria(models.Model):
  nazwa = models.CharField(max_length=40)
@@ -27,6 +35,7 @@ class Kategoria(models.Model):
 class Gry(models.Model):
  kategoria = models.ForeignKey(Kategoria, on_delete=models.CASCADE, null=True, blank=False)
  producent = models.ForeignKey(Producent, on_delete=models.CASCADE, null=True, blank=False)
+ wydawca = models.ForeignKey(Wydawca, on_delete=models.CASCADE, null=True, blank=False)
  nazwa = models.CharField(max_length=40)
  opis = models.TextField(blank=True)
  cena = models.DecimalField(max_digits=12, decimal_places=2)

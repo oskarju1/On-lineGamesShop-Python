@@ -1,0 +1,227 @@
+<style>
+
+    #logo
+    {
+	background-color: rgba(217, 217, 217, 0.5);
+	width: auto;
+	text-align: center;
+	height: auto;
+	background-size: 300px auto;
+	animation: zjazd;
+	animation-duration: 2.5s;
+	border-radius: 50px;
+	border: none;
+    }
+
+    #logo h3
+    {
+	text-transform: uppercase;
+	text-allign: center;
+	letter-spacing: 2px;
+	font-size: 70px;
+	animation: logoanim;
+	animation-duration: 2.5s;
+    }
+
+    @keyframes zjazd
+    {
+	from {height: 0;}
+	to {height: max;}
+    }
+
+    @keyframes logoanim
+    {
+	from {font-size: 0;}
+	to {font-size: max;}
+    }
+
+    body
+    {
+   	font-family: 'Barlow', sans-serif;
+	font-size: 20px;
+    background-color: #0a4772;
+	{#background-image: url('img/background.png') fixed no-repeat bottom#}
+    }
+
+    #zawartosc
+    {
+	background-color: rgba(255, 255, 255, 0.5);
+	padding: 30px;
+	margin-top:5%;
+	text-align:center;
+	border-radius: 30px;
+	border: none;
+    }
+
+    #strona
+    {
+	max-width: 1000px;
+	align-content: center;
+	margin-left: auto;
+	margin-right: auto;
+    }
+
+    #footer
+    {
+    background-color: rgba(255, 255, 255, 0.1);
+	text-align:center;
+	margin-top:10%;
+	border-radius: 10px;
+	border: none;
+    }
+
+    #logowanie
+    {
+	position: fixed;
+	top: 20px;
+	right: 10px;
+	padding: 18px;
+	background-color: rgba(50, 50, 50, 0.5);
+	border-radius: 20px;
+	border: none;
+	font-weight: 700;
+	text-transform: uppercase;
+	animation: logoanim;
+	animation-duration: 3s;
+	font-size: 12px;
+    }
+
+    #logowanie:hover
+    {
+	box-shadow: 0 0 10px black;
+	transition: 0.5s;
+    }
+
+    a
+    {
+	text-decoration: none;
+	color: white;
+    }
+
+    #menu
+    {
+	margin-top:30px;
+	width: auto;
+	height: auto;
+    }
+
+    .opcje
+    {
+	position: relative;
+	display: inline-block;
+    }
+
+    .opcje-przycisk
+    {
+	background-color: rgba(217, 217, 217, 0.5);
+	font-weight: 700;
+	color: white;
+	padding: 26px;
+	font-size: 25px;
+	border: none;
+	text-transform: uppercase;
+	width: 300px auto;
+	margin: 5px;
+	cursor: default;
+	border-radius: 20px;
+    }
+
+    .opcje-zawartosc
+    {
+	background-color: rgb(100, 100, 100);
+	display: none;
+	position: absolute;
+	min-width: 300px auto;
+	box-shadow: 0 6 3px 3px rgba(0, 0, 0, 0.2);
+	width: 300px;
+	margin-left: 10px;
+	margin-right: 10px;
+	border-radius: 20px;
+	border: none;
+    }
+
+    .opcje-zawartosc a
+    {
+	color: white;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+	transition: 0.5s;
+	border-radius: 20px;
+	border: none;
+    }
+
+    .opcje-zawartosc a:hover
+    {
+	background-color: rgb(60, 60, 60);
+    }
+
+    .opcje:hover .opcje-zawartosc
+    {
+	display: block;
+    }
+
+    .grymenu a
+    {
+	background-color: rgba(50, 50, 50, 0.5);
+	padding: 30px;
+	margin: 50px;
+	border-radius: 20px;
+	border: none;
+	font-size: 20px;
+	transition: 0.8s;
+	font-weight:700;
+    }
+
+    .grymenu a:hover
+    {
+	box-shadow: 0 0 12px black;
+    }
+
+
+
+</style>
+
+
+<head>
+    <title>Sklep internetowy</title>
+</head>
+
+<body>
+    <div id="strona">
+        <div id="logo">
+            <h3><a href="/">MÓJ SKLEP</a></h3>
+        </div>
+        </div>
+        <div style="clear:both"></div>
+    		<div id="menu">
+                <div class="opcje">
+                    <button class="opcje-przycisk">Kategorie</button>
+                    <div class="opcje-zawartosc">
+                        {% for kat in kategorie %}
+                            <p><a href = "/kategoria/{{ kat.id }}"> {{ kat.nazwa }} </a></p>
+                        {% endfor %}
+                    </div>
+                    <button class="opcje-przycisk">Producenci</button>
+                    <div class="opcje-zawartosc">
+                        {% for prod in producenci %}
+                            <p><a href = "/producent/{{ prod.id }}"> {{ prod.nazwa }} </a></p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div id="zawartosc">
+                <div class="grymenu">
+                    {% block gra %} {% endblock gra %}
+                </div>
+            </div>
+        <div style="clear:both">
+        </div>
+
+
+<div id ="footer">
+    <h5>Stronę stworzył Oskar Jurgielaniec  INIS6_PR2 51073. &copy;Wszelkie prawa zastrzeżone</h5>
+</div>
+
+<a id="logowanie" href="/">Zaloguj się</a>
+</body>
