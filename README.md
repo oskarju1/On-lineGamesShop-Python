@@ -22,10 +22,10 @@ Download and run in Python environment
 
 
 ## Features
-List of features ready:
+###List of features ready:
 * Menu with list of games to buy
 * Log in
-* TODOs:
+###TODOs:
 * Ability to add game to cart
 * In summary see the cost of all games and redirect to pages with the cheapest ones
 
