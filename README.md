@@ -22,7 +22,7 @@ Download and run in Python environment
 
 
 ## Features
-List of features ready and TODOs for future development
+List of features ready:
 * Menu with list of games to buy
 * Log in
 TODOs:
